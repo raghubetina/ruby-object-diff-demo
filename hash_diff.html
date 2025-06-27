@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hash Diff</title>
+  <style>
+    .diff{overflow:auto;}
+.diff ul{background:#fff;overflow:auto;font-size:13px;list-style:none;margin:0;padding:0;display:table;width:100%;}
+.diff del, .diff ins{display:block;text-decoration:none;}
+.diff li{padding:0; display:table-row;margin: 0;height:1em;}
+.diff li.ins{background:#dfd; color:#080}
+.diff li.del{background:#fee; color:#b00}
+.diff li:hover{background:#ffc}
+/* try 'whitespace:pre;' if you don't want lines to wrap */
+.diff del, .diff ins, .diff span{white-space:pre-wrap;font-family:courier;}
+.diff del strong{font-weight:normal;background:#fcc;}
+.diff ins strong{font-weight:normal;background:#9f9;}
+.diff li.diff-comment { display: none; }
+.diff li.diff-block-info { background: none repeat scroll 0 0 gray; }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .diff {
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #f8f8f8;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ruby Object Diff Demo</h1>
+  
+  <div class="container">
+    <h2>Hash Diff</h2>
+    <div class="diff">
+  <ul>
+    <li class="unchanged"><span>{</span></li>
+    <li class="del"><del>  &quot;name&quot;: &quot;John <strong>Doe</strong>&quot;,</del></li>
+    <li class="ins"><ins>  &quot;name&quot;: &quot;John <strong>Smith</strong>&quot;,</ins></li>
+    <li class="unchanged"><span>  &quot;age&quot;: 30,</span></li>
+    <li class="unchanged"><span>  &quot;address&quot;: {</span></li>
+    <li class="del"><del>    &quot;street&quot;: &quot;<strong>123 Main St</strong>&quot;,</del></li>
+    <li class="ins"><ins>    &quot;street&quot;: &quot;<strong>456 Oak Ave</strong>&quot;,</ins></li>
+    <li class="unchanged"><span>    &quot;city&quot;: &quot;New York&quot;,</span></li>
+    <li class="del"><del>    &quot;zip&quot;: &quot;1000<strong>1</strong>&quot;</del></li>
+    <li class="ins"><ins>    &quot;<strong>state&quot;: &quot;NY&quot;,</strong></ins></li>
+    <li class="ins"><ins><strong>    &quot;</strong>zip&quot;: &quot;1000<strong>2</strong>&quot;</ins></li>
+    <li class="unchanged"><span>  },</span></li>
+    <li class="unchanged"><span>  &quot;hobbies&quot;: [</span></li>
+    <li class="unchanged"><span>    &quot;reading&quot;,</span></li>
+    <li class="del"><del>    &quot;<strong>gam</strong>ing&quot;,</del></li>
+    <li class="del"><del>    &quot;hiking&quot;<strong></strong></del></li>
+    <li class="del"><del><strong></strong></del></li>
+    <li class="ins"><ins>    &quot;<strong>swimm</strong>ing&quot;,</ins></li>
+    <li class="ins"><ins>    &quot;hiking&quot;<strong>,</strong></ins></li>
+    <li class="ins"><ins><strong>    &quot;cooking&quot;</strong></ins></li>
+    <li class="ins"><ins><strong></strong></ins></li>
+    <li class="unchanged"><span>  ],</span></li>
+    <li class="del"><del>  &quot;active&quot;: <strong>true</strong></del></li>
+    <li class="del"><del><strong></strong></del></li>
+    <li class="ins"><ins>  &quot;active&quot;: <strong>false,</strong></ins></li>
+    <li class="ins"><ins><strong>  &quot;phone&quot;: &quot;555-1234&quot;</strong></ins></li>
+    <li class="ins"><ins><strong></strong></ins></li>
+    <li class="unchanged"><span>}</span></li>
+  </ul>
+</div>
+
+  </div>
+  
+  <div class="container">
+    <h2>Original Objects</h2>
+    <h3>Object 1:</h3>
+    <pre>{
+  "name": "John Doe",
+  "age": 30,
+  "address": {
+    "street": "123 Main St",
+    "city": "New York",
+    "zip": "10001"
+  },
+  "hobbies": [
+    "reading",
+    "gaming",
+    "hiking"
+  ],
+  "active": true
+}</pre>
+    
+    <h3>Object 2:</h3>
+    <pre>{
+  "name": "John Smith",
+  "age": 30,
+  "address": {
+    "street": "456 Oak Ave",
+    "city": "New York",
+    "state": "NY",
+    "zip": "10002"
+  },
+  "hobbies": [
+    "reading",
+    "swimming",
+    "hiking",
+    "cooking"
+  ],
+  "active": false,
+  "phone": "555-1234"
+}</pre>
+  </div>
+</body>
+</html>
