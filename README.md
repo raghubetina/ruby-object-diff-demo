@@ -2,6 +2,10 @@
 
 A proof-of-concept for generating beautiful HTML diffs between Ruby hashes and arrays using the [diffy](https://github.com/samg/diffy) gem.
 
+## Split View Diff Example
+
+![Split View Diff](split_diff.png)
+
 ## Overview
 
 This demo shows how to:
